@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <title>Signup</title>
+</head>
+<style>
+   body {
+      margin: 0;
+      padding: 0;
+      background: rgb(43, 148, 158);
+      background: linear-gradient(90deg, rgba(43, 148, 158, 1) 8%, rgba(9, 111, 121, 1) 35%, rgba(104, 221, 245, 1) 100%);
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   }
+
+   .form-control {
+      display: flex;
+      background-color: #c3c36a;
+      padding: 5px;
+      margin-left: 2.5rem;
+      margin-top: 0 rem;
+      margin-bottom: 1rem;
+   }
+
+   .main {
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin-top: 5%;
+   }
+
+   .pass {
+      display: flex;
+      flex-direction: column;
+   }
+
+   .image h2 {
+      color: rgb(2, 29, 149);
+      font-size: 30px;
+      font-family: sans-serif;
+      margin-bottom: 50px;
+      margin-left:2rem;
+   }
+
+   .username input,
+   .pass input {
+      font-family: sans-serif;
+      margin-bottom: 20px;
+      height: 30px;
+      border-radius: 100px;
+      border: none;
+      text-align: center;
+      outline: none;
+   }
+
+   .submit_btn {
+      height: 30px;
+      width: 80px;
+      border-radius: 100px;
+      border: none;
+      outline: none;
+      background-color: #75b9e9;
+      margin-left: 2rem;
+   }
+
+   .submit_btn:hover {
+      background-color: rgba(247, 250, 240, 0.596);
+      color: rgb(14, 14, 14);
+      cursor: pointer;
+   }
+
+   .refresh {
+      margin-left: 10rem;
+      
+   }
+
+   a {
+      margin-left: 4rem;
+      font-weight: bolder;
+   }
+</style>
+<body>
+   <div class="body">
+      <form class="container" method="POST" action="/signup">
+         <div class="main">
+            <div class="image">
+               <h2>Signup Here</h2>
+            </div>
+            <div class="username">
+               <input type="text" class="form-control" id="username" name="User_Name" placeholder="Username" required>
+            </div>
+            <div class="username">
+               <input type="text" class="form-control" id="mail"name="User_Email" placeholder="Enter your mail" required>
+            </div>
+            <div class="pass">
+               <input type="password" class="form-control"  id="password" name="User_Password" placeholder="Enter password" required>
+               </div>
+               <div class="username">
+                  <table>
+                     <tr>
+                        <td>
+                           <input type="text" id="mainCaptcha" class="form-control" placeholder=" Refresh Captcha"
+                              readonly="readonly" />
+                           <div class="refresh">
+                              <input type="button" id="refresh" value="Refresh" onclick="generateCaptcha();" />
+                           </div>
+                           <input type="text" n class="form-control" placeholder="Enter Captcha" id="txtInput" />
+                        </td>
+                     </tr>
+                     <tr>
+                        <td><span id="error" style="color:red"></span></td>
+                     </tr>
+                     <tr>
+                        <td><span id="success" style="color:green"></span></td>
+                     </tr>
+                  </table>
+               </div>
+               <span id="wrong_pass_alert"></span>
+               <div class="buttons">
+                  <button id="create" class="submit_btn" onclick="wrong_pass_alert()">Submit</button><br>
+               </div><br>
+               <a href="/"> Existing user?Login Here </a>
+            </div>
+         </form>
+      </div>
+      <script>
+         function validate_password() {
+            var pass = document.getElementById('pass').value;
+            var confirm_pass = document.getElementById('confirm_pass').value;
+            if (pass != confirm_pass) {
+               document.getElementById('wrong_pass_alert').style.color = 'red';
+               document.getElementById('wrong_pass_alert').innerHTML
+                  = '☒ Use same password';
+               document.getElementById('create').disabled = true;
+               document.getElementById('create').style.opacity = (0.4);
+            } else {
+               document.getElementById('wrong_pass_alert').style.color = 'green';
+               document.getElementById('wrong_pass_alert').innerHTML =
+                  '🗹 Password Matched';
+               document.getElementById('create').disabled = false;
+               document.getElementById('create').style.opacity = (1);
+            }
+         }
+         function wrong_pass_alert() {
+            if (document.getElementById('pass').value != "" &&
+               document.getElementById('confirm_pass').value != "" && document.getElementById("mainCaptcha").value == document.getElementById('txtInput').value) {
+               window.open("/");
+            } else {
+               alert("Please fill all the fields");
+            }
+         }
+         function generateCaptcha() {
+            var alpha = new Array('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z');
+            var i;
+            for (i = 0; i < 4; i++) {
+               var a = alpha[Math.floor(Math.random() * alpha.length)];
+               var b = alpha[Math.floor(Math.random() * alpha.length)];
+               var c = alpha[Math.floor(Math.random() * alpha.length)];
+               var d = alpha[Math.floor(Math.random() * alpha.length)];
+            }
+            var code = a + '' + b + '' + '' + c + '' + d;
+            document.getElementById("mainCaptcha").value = code
+         }generateCaptcha()
+         function CheckValidCaptcha() {
+            var string1 = removeSpaces(document.getElementById('mainCaptcha').value);
+            var string2 = removeSpaces(document.getElementById('txtInput').value);
+            if (string1 == string2) {
+               document.getElementById('success').innerHTML = "Form is validated Successfully";
+               return true;
+            }
+            else {
+               document.getElementById('error').innerHTML = "Please enter a valid captcha.";
+               return false;
+   
+            }
+         }
+         function removeSpaces(string) {
+            return string.split(' ').join('');
+         }   
+      </script>
+   </body>
+   
+   </html>

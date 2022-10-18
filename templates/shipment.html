@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<head>
+    <title>Login Page</title>
+    
+</head>  
+<style>
+    h2 {
+    text-align: center;
+}
+
+table.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th,
+td {
+    padding: 5px;
+}
+
+div {
+    margin-left: 600px;
+}
+.btn2{
+    margin-left: 50px;
+    
+}
+    body {
+        font-family: Calibri, Helvetica, sans-serif;
+        background-color: rgb(96, 109, 175);
+      
+      }
+      
+      
+      
+      button{
+        margin-left: 2rem;
+        padding: 10px;
+        margin-top: 2rem;
+        background-color: bisque;
+      
+      }
+</style>
+<body>
+        <form class="container" method="POST" action="/shipment">
+        <br>
+    <!-- <a href="/devicedata">
+        <button style="background-color:white; border-color:white; color:black"> Device Data Stream </button></a> -->
+    <!-- <a href="/">
+        <button style="background-color:white; border-color:white; color:black">Logout</button></a> -->
+        
+      
+    <h2>Create Your Shipment</h2>
+    <table class="center">
+        <tr>
+            <td>Shipment/Invoice Number :</td>
+            <td><input type="number" required name="invoicenumber" placeholder="Shipment/Invoice Number"></td>
+        </tr>
+        <tr>
+            <td>Container Number :</td>
+            <td><input type="number" required name="containernumber" placeholder="Container Number"></td>
+        </tr>
+        <tr>
+            <td>Shipment Description :</td>
+            <td><textarea rows="5" cols="25" required name="shipmentdescription" placeholder="Enter your Description"></textarea></td>
+        </tr>
+        <tr>
+            <td> Route Details :  </td>
+            <td><select name="routedetails">Select Route</option>
+                <option value="route">Select Route</option>
+            <option value="Tpt to Hyd">Tpt to Hyd</option>
+            <option value="Tpt to Try">Tpt to Try</option>
+            <option value="Tpt to Goa">Tpt to Goa</option>
+            <option value="Tpt to Bng">Tpt to Bng</option>
+            <option value="Tpt to Vig">Tpt to Vig</option>
+        </select></td>
+        </tr>
+        <tr>
+            <td>  Goods Type :  </td>
+            <td><select name="goodstype">Goods Type</option>
+                <option value="goods">Goods Type</option>
+            <option value="cosmetics">Cosmetics</option>
+            <option value="pharmacy">Pharmacy</option>
+            <option value="circuits">circuits</option>
+        </select></td>
+        </tr>
+            
+        <tr>
+            <td>  Devices :  </td>
+            <td><select name="devices">Devices</option>
+                <option value="devices">Select Device</option>
+            <option value="25836">25836</option>
+            <option value="78963">78963</option>
+            <option value="45238">45238</option>
+        </select></td>
+        </tr>
+        <tr>
+            <td> Expected Delivery Date :</td>
+            <td><input type="date"  name="date"></td>
+        </tr>
+        <tr>
+            <td>PO Number :</td>
+            <td><input type="number" required name="ponumber" placeholder="PO Number"></td>
+        </tr>
+        <tr>
+            <td>Delivery Number :</td>
+            <td><input type="number" required name="deliverynumber" placeholder="Delivery Number"></td>
+        </tr>
+        <tr>
+            <td>NDC Number :</td>
+            <td><input type="number" required name="ndcnumber" placeholder="NDC Number"></td>
+        </tr>
+        <tr>
+            <td>Batch ID :</td>
+            <td><input type="number"  required  name="batchid" placeholder="Batch Id"></td>
+        </tr>
+        <tr>
+            <td>Serial Number of Goods :</td>
+            <td><input type="number" required name="goods" placeholder="Serial Number of Goods"></td>
+        </tr>
+    </form>
+    <br>
+    <br>
+        <tr>
+           
+            <td align="center" colspan="2"><br>
+                <input  href='/shipment' type="submit" value="Create Shipment">
+                &nbsp; &nbsp;
+                <input type="reset" value="Cancel Shipment" onclick="window.location.href='/shipment'">
+                &nbsp; &nbsp;
+                <input type="button" value="Exit" onclick="window.location.href='/dashboard'">
+        
+        
+                
+        </tr>
+    </table>
+
+</body>  
+</html>

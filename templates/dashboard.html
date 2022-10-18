@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+
+body{
+  background: rgb(9,111,121);
+background: linear-gradient(90deg, rgba(9,111,121,1) 35%, rgba(57,142,159,1) 100%);
+
+}
+
+.dashboard{
+    margin-left: 36rem;
+    margin-top: 4rem;
+    font-weight: 2rem;
+    color: white;
+}
+
+.btn {
+  background-color: #f4511e;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  opacity: 1;
+  transition: 0.3s;
+  margin-left: 35rem;
+  width: 15%;
+  margin-top: 2rem;
+}
+.btn1 {
+  background-color: #f4511e;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  opacity: 1;
+  transition: 0.3s;
+  margin-left: 35rem;
+  }
+.btn:hover {opacity: 0.6}
+
+.btn2{
+  background-color: #1dc13b;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    opacity: 1;
+    transition: 0.3s;
+    margin-left: 35rem;
+    width: 15%;
+}
+
+</style>
+</head>
+<body>
+  <form class="container" method="post" action="/dash"></form>
+<h2 class="dashboard">DASHBOARD</h2>
+<button class="btn" onclick="window.location.href='/shipment'">Create Shipment</button><br><br>
+<button class="btn1" onclick="window.location.href='/devicedata'">Device Data Stream</button><br><br>
+<button class="btn2" onclick="window.location.href='/'">Logout</button>
+</form>
+</body>
+</html>
+
+
+
+
+
+<!-- <!DOCTYPE html>
+
+<head>
+    <title>Dashboard Page</title>
+
+
+<body>
+    <form class="container" method="get" action="/dashboard" >
+        <br>
+        <br>
+        <h1> Dashboard
+            <br>
+            <br>
+            <br>
+        </h1>
+        <table border="0" width="70%" align="center"  height="70%">
+            <tr>
+                <th width="25%">
+                    <a href="/shipment">CREATE SHIPMENT</a></font>
+                </th>
+                <th width="25%">
+                    <a href="/devicedata">DEVICE DATA STREAM</a></font>
+                </th>
+                <th width="25%">
+                    <a href="/">Logout</a>
+
+                </th>
+            </tr>
+        </table><br><br>
+    </form>
+</body>
+</head> -->

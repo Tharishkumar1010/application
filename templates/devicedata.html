@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<body>
+  <title>Dash Board Page</title>
+  
+
+  <style>
+    body {
+      background-color: rgb(235, 229, 241);
+    }
+
+    h2 {
+      color: black;
+    }
+
+    button {
+      color: rgb(232, 241, 100);
+    }
+
+    title {
+      color: rgb(0, 60, 128);
+    }
+
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 80%;
+      margin: auto;
+
+    }
+
+    td,
+    th {
+      
+      text-align: left;
+      padding: 8px;
+
+    }
+  </style>
+  </head>
+  <div style="text-align:center;">
+    <h1 style="text-align:center;"></h1>
+
+    <title>Device Data Stream</title>
+
+    
+    <a href="/dashboard">
+      <button style="background-color:white; border-color:white; color:black">Dashboard</button></a>
+    <hr>
+    <h2 style="text-align:center;">Device Data Stream Page</h2>
+    </head>
+    <table>
+      <tr>
+        <th>Battery_Level</th>
+        <th>Device_Id</th>
+        <th>First_Sensor_temperature</th>
+        <th>Route_From</th>
+        <th>Route_To</th>
+      </tr>
+      {% for i in shipments%}
+      <tr>
+        <td>{{i["Battery_Level"]}}</td>
+        <td>{{i["Device_Id"]}}</td>
+        <td>{{i["First_Sensor_temperature"]}}</td>
+        <td>{{i["Route_From"]}}</td>
+        <td>{{i["Route_To"]}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+</body>
+</html>

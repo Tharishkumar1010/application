@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Login Page</title>
+
+</head>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .main {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    margin-top: 5%;
+  }
+
+
+  .pass {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-control {
+    display: flex;
+    background-color: lightgoldenrodyellow;
+    padding: 5px;
+    margin-left: 2.5rem;
+    margin-top: 0 rem;
+    margin-bottom: 1rem;
+  }
+
+
+  .image h2 {
+    color: rgb(249, 250, 245);
+    font-size: 30px;
+    font-family: sans-serif;
+    margin-bottom: 50px;
+  }
+
+  .mail input,
+  .pass input {
+    font-family: sans-serif;
+    margin-bottom: 20px;
+    height: 30px;
+    border-radius: 100px;
+    border: none;
+    text-align: center;
+    outline: none;
+  }
+
+  .submit_btn {
+    height: 30px;
+    width: 80px;
+    border-radius: 100px;
+    border: none;
+    outline: none;
+    background-color: rgb(32, 204, 118);
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+  }
+
+  .submit_btn:hover {
+    background-color: rgba(0, 42, 179, 0.596);
+    color: rgb(14, 14, 14);
+    cursor: pointer;
+  }
+
+  .login {
+    margin-left: 3rem;
+  }
+
+  .link{
+    margin-left: 2rem;
+  }
+</style>
+
+<body>
+  <form class="container" method="POST" action="/">
+
+    <br>
+    <br>
+    <h1 class="login">Login Here</h1>
+    <div class="main">
+      <br>
+      <br>
+      <div class="mail">
+        <input type="text" class="form-control" name="User_Email" placeholder="Enter your mail address" required>
+      </div>
+      <div class="pass">
+        <input id="pass" class="form-control" type="password" class="form-control" name="User_Password"
+          placeholder="Enter Password" required>
+
+      </div>
+      <br>
+      <br>
+      <button class="btnn submit_btn" method="POST" type="SUBMIT">Sign In</button>
+      <p class="link">Don't have an account<a href="signup">  Click Here</p>
+
+    </div>
+  </form>
+</body>
+
+</html>
